@@ -3,7 +3,7 @@ import { db } from './firebase'
 
 import {
     collection,
-    getDoc,
+    getDocs,
     addDoc,
     updateDoc,
     deleteDoc,
@@ -26,7 +26,7 @@ function Info() {
     }
 
     const getBusinesses = async () => {
-        const data = await getDoc(collection(db, "businesses"))
+        const data = await getDocs(collection(db, "businesses"))
         setBusinesses(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
