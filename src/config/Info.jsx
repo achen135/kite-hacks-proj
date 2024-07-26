@@ -12,16 +12,14 @@ import {
 
 function Info() {
     const [newName, setNewName] = useState("")
+    const [newLocation, setNewLocation] = useState("mom's")
+    const [newType, setNewType] = useState("nuclear power")
+    const [newRequiredItems, setNewRequiredItems] = useState("eggs_debug")
 
-    {/*more information when I can confirm that this shit works*/}
-    // const [newLocation, setNewLocation] = useState("grove street")
-    // const [newRequiredItems, setNewRequiredItems] = useState("eggs_debug")
-    // , type: Type, location: newLocation, requiredItems: newRequiredItems
-
-    const [businesses, setNewBusinesses] = useState([])
+    const [businesses, setBusinesses] = useState([])
 
     const createBusiness = async () => {
-        await addDoc(collection(db, "businesses"), { name: newName})
+        await addDoc(collection(db, "businesses"), { name: newName, type: newType, location: newLocation, requiredItems: newRequiredItems})
         getBusinesses()
     }
 
@@ -42,6 +40,7 @@ function Info() {
     return (
       <>
         <h>very cool thing that works</h>
+
         <input
           type="text"
           placeholder="Name"
@@ -49,11 +48,37 @@ function Info() {
             setNewName(event.target.value)
           }}
         />
+          <input
+          type="text"
+          placeholder="Name"
+          onChange={(event) => {
+            setNewLocation(event.target.value)
+          }}
+        />
+          <input
+          type="text"
+          placeholder="Name"
+          onChange={(event) => {
+            setNewType(event.target.value)
+          }}
+        />
+          <input
+          type="text"
+          placeholder="Name"
+          onChange={(event) => {
+            setNewRequiredItems(event.target.value)
+          }}
+        />
+
         <button onClick={createBusiness}>Add</button>
         <button onClick={deleteBusiness}>Delete</button>
           {businesses.map((businesses) => (
             <div key={businesses.id}>
-              <h2>Name: {businesses.name}</h2>
+              <h2>Name: {businesses.name}
+                  Type: {businesses.type}
+                  Location: {businesses.location}
+                  Required Items: {businesses.requiredItems}
+              </h2>
             </div>
           ))}
       </>
