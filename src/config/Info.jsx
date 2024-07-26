@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { db } from "./firebase-config"
+import { db } from './firebase'
 
 import {
     collection,
@@ -46,7 +46,7 @@ function Info() {
           type="text"
           placeholder="Name"
           onChange={(event) => {
-            setnewName(event.target.value)
+            setNewName(event.target.value)
           }}
         />
         <button onClick={createBusiness}>Add</button>
