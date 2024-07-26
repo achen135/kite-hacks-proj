@@ -3,10 +3,10 @@ import { db } from "./firebase-config"
 
 import {
     collection,
-    getDocs,
-    addDocs,
-    updateDocs,
-    deleteDocs,
+    getDoc,
+    addDoc,
+    updateDoc,
+    deleteDoc,
     doc,
 }   from "firebase/firestore"
 
@@ -21,17 +21,17 @@ function Info() {
     const [businesses, setNewBusinesses] = useState([])
 
     const createBusiness = async () => {
-        await addDocs(collection(db, "businesses"), { name: newName})
+        await addDoc(collection(db, "businesses"), { name: newName})
         getBusinesses()
     }
 
     const getBusinesses = async () => {
-        const data = await getDocs(collection(db, "businesses"))
+        const data = await getDoc(collection(db, "businesses"))
         setBusinesses(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
 
     const deleteBusiness = async (id) => {
-        await deleteDocs(doc(db, "businesses", id))
+        await deleteDoc(doc(db, "businesses", id))
         getBusinesses()
     }
     
