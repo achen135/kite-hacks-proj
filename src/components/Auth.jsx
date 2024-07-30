@@ -174,11 +174,11 @@ const Auth = () => {
           <h1>Sign In</h1>
           <div className='auth-text-field'>
             <p>Enter your email</p>
-            <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} required/>
+            <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div className='auth-text-field'>
             <p>Enter a password</p>
-            <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} required/>
+            <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
           </div>
           <div className='auth-button-container'>
             <button onClick={signIn}>Sign In</button>

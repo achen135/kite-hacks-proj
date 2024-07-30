@@ -1,6 +1,7 @@
 import React from 'react'
 import Auth from './components/Auth'
-import Home from './pages/home/Main' 
+import Account from './pages/Main App/Account/Account'
+import Sidebar from './pages/Main App/Sidebar/Sidebar'
 import './App.css'
 
 
@@ -8,7 +9,7 @@ import './App.css'
 function App() {
   return (
     <>
-      <Auth/>
+      <Account/>
     </>
   )
 }
