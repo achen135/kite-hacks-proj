@@ -1,0 +1,44 @@
+.impact-bg {
+    width: 100vw;
+    background-color: var(--colorprimary);
+}
+
+.impact-container h1 {
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.impact-card {
+    text-align: center;
+    padding: 12px;
+    background-color: var(--colorsecondary);
+    border: 4px solid var(--colorprimary);
+    border-radius: 16px;
+}
+
+.impact-card h1 {
+    margin: 0;
+}
+
+@media (min-width: 1200px) {
+    
+    .impact-card-container{
+        display: flex;
+        gap: 2vw;
+        margin-top: 32px;
+    }
+
+    .impact-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 33vw;
+        height: 280px;
+        border: none;
+    }
+
+    #card2 {
+        scale: 1.1;
+    }
+
+}

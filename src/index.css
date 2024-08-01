@@ -19,11 +19,13 @@
 body {
   margin: auto;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 section {
   width: 80vw;
   margin: 0 auto;
+  padding: 64px 0;
 }
 
 button:hover {
@@ -31,6 +33,16 @@ button:hover {
   cursor: pointer;
 }
 
+@media (min-width: 2000px) {
+    h1 {
+      font-size: 1.5vw;
+    }
+    
+    p {
+      font-size: 0.75vw;
+    }
+
+}
 
 /* @media (prefers-color-scheme: light) {
   :root {
