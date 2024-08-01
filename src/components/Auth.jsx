@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { auth } from '../config/firebase'
 import {createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword  } from "firebase/auth";
 import './Auth.css'
@@ -9,6 +10,7 @@ const Auth = () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("");
     const [formValidity, setFormValidity] = useState(false)
+    const navigate = useNavigate();
 
     const handlePasswordChange = (pw) => {
       if(pw.length < 8) {
@@ -63,6 +65,7 @@ const Auth = () => {
           .then((userCredential) => {
             const user = userCredential.user
           })
+        navigate('/kite-hacks-proj/account');
       } catch(err) {
         console.error(err)
       }

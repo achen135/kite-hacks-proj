@@ -41,6 +41,13 @@
     text-align: center;
 }
 
+.hero-sign-in {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
 .hero-cta button {
     width: 50%;
     padding: 12px;
