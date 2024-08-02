@@ -11,7 +11,7 @@ const Mission = () => {
             </svg>
           </div>
           <div className='mission-img-container'>
-              <img src="src\assets\images\missionpic.jpg"/>
+              <img src="./images/missionpic.jpg"/>
           </div>
           <div className='mission-text-container'>
               <h1>Our Mission</h1>

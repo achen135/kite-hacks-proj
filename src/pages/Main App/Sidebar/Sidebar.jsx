@@ -8,10 +8,10 @@ const Sidebar = () => {
       <div className='sidebar-container'>
         <div className='sidebar-content'>
           <div className='sidebar-account'>
-            <Link to='/kite-hacks-proj/account'><img className='sidebar-icon' id='sidebar-account' src="src\assets\icons\account.png" alt="Account"/></Link>
+            <Link to='/kite-hacks-proj/account'><img className='sidebar-icon' id='sidebar-account' src="./icons/account.png" alt="Account"/></Link>
           </div>
           <div className='sidebar-map'>
-            <Link to='/kite-hacks-proj/map'><img className='sidebar-icon' id='sidebar-map' src="src\assets\icons\map.png" alt="Map" /></Link>
+            <Link to='/kite-hacks-proj/map'><img className='sidebar-icon' id='sidebar-map' src="./icons/map.png" alt="Map" /></Link>
           </div>
         </div>
       </div>

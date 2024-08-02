@@ -9,11 +9,11 @@ const Contact = () => {
                 <h1>Get In Contact</h1>
                 <p>Got questions or having any issues? Get in contact with us!</p>
                 <div className='contact-option'>
-                    <img className='contact-icon' src="src\assets\icons\email.png"/>
+                    <img className='contact-icon' src="./icons/email.png"/>
                     <p>contact.us.food4everyone@gmail.com</p>
                 </div>
                 <div className='contact-option'>
-                    <img className='contact-icon' src="src\assets\icons\phone.png"/>
+                    <img className='contact-icon' src="./icons/phone.png"/>
                     <p>(609) 813-0834</p>
                 </div>
             </div>

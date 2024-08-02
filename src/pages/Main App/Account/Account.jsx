@@ -12,6 +12,7 @@ const Account = () => {
   const [long, setLong] = useState("")
   const [desc, setDesc] = useState("")
   const [phone, setPhone] = useState("")
+  const [role, setRole] = useState("")
   const [editMode, setEditMode] = useState(false)
   const navigate = useNavigate()
 
@@ -28,6 +29,7 @@ const Account = () => {
             setLong(userData.location?.longitude || "")
             setDesc(userData.description || "")
             setPhone(userData.phone || "")
+            setRole(userData.role || "")
           }
         } catch (err) {
           console.error(err);
@@ -46,7 +48,7 @@ const Account = () => {
       const longitude = parseFloat(long)
 
       if (isNaN(latitude) || isNaN(longitude)) {
-        console.error("Invalid latitude or longitude values")
+        alert("Please enter valid latitude and longitude values");
         return
       }
 
@@ -57,6 +59,7 @@ const Account = () => {
         location: location,
         description: desc,
         phone: phone,
+        role: role
       });
 
       setUser(prevUser => ({
@@ -65,9 +68,11 @@ const Account = () => {
         location: location,
         description: desc,
         phone: phone,
+        role: role
       }));
       setEditMode(false)
     } catch (err) {
+      alert("Please fill in all fields")
       console.error(err)
     }
   }
@@ -119,6 +124,27 @@ const Account = () => {
                     placeholder='Phone Number'
                   />
                 </div>
+                <div className='account-edit-role'>
+                  <p>Role:</p>
+                  <label>
+                    <input
+                      type="radio"
+                      value="donator"
+                      checked={role === 'donator'}
+                      onChange={(e) => setRole(e.target.value)}
+                    />
+                    Donator
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="receiver"
+                      checked={role === 'receiver'}
+                      onChange={(e) => setRole(e.target.value)}
+                    />
+                    Receiver
+                  </label>
+                </div>
                 <div className='account-edit-buttons'>
                   <button onClick={handleSave}>Save</button>
                   <button onClick={() => setEditMode(false)}>Cancel</button>
@@ -128,10 +154,11 @@ const Account = () => {
               <div className='account-display-container'>
                 <p><span>Name:</span> <br/>{user.name}</p>
                 <p><span>Email:</span> <br/>{user.email}</p>
-                <p><span>Location:</span> <br/>{user.location ? `Latitude: ${user.location.latitude}, Longitude: ${user.location.longitude}` : 'N/A'}</p>
-                <p><span>Description:</span> <br/>{user.description || 'N/A'}</p>
                 <p><span>Phone:</span><br/>{user.phone || 'N/A'}</p>
-                <button onClick={() => setEditMode(true)}> <img className='account-edit-btn' src="src\assets\icons\edit.png" alt="Edit" /> </button>
+                <p><span>Location:</span> <br/>{user.location ? `Latitude: ${user.location.latitude}, Longitude: ${user.location.longitude}` : 'N/A'}</p>
+                <p><span>Description:</span> <br/>{user.description || 'N/A'}</p> 
+                <p><span>Role:</span> <br/>{user.role || 'Not Chosen Yet'}</p>
+                <button onClick={() => setEditMode(true)}> <img className='account-edit-btn' src="./icons/edit.png" alt="Edit" /> </button>
               </div>
             )}
           </>

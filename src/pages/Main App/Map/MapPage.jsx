@@ -7,6 +7,7 @@ import './MapPage.css'
 const MapPage = () => {
   const [businesses, setBusinesses] = useState([])
   const [userLocation, setUserLocation] = useState(null)
+  const [userRole, setUserRole] = useState(null)
 
   useEffect(() => {
     const fetchBusinesses = async () => {
@@ -20,6 +21,24 @@ const MapPage = () => {
     }
 
     fetchBusinesses()
+  }, [])
+
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      try {
+        const user = auth.currentUser
+        if (user) {
+          const userDoc = await getDoc(doc(db, 'businesses', user.uid))
+          if (userDoc.exists()) {
+            setUserRole(userDoc.data().role)
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user role: ", error)
+      }
+    }
+
+    fetchUserRole()
   }, [])
 
   useEffect(() => {
@@ -64,7 +83,9 @@ const MapPage = () => {
 
         const infoWindow = new googleMaps.InfoWindow();
 
-        businesses.forEach(business => {
+        businesses
+        .filter(business => userRole === 'donator' ? business.role === 'receiver' : business.role === 'donator')
+        .forEach(business => {
           if (business.location) {
             const marker = new googleMaps.Marker({
               position: { lat: business.location.latitude, lng: business.location.longitude },

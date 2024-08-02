@@ -12,6 +12,8 @@ const Heading = () => {
 
   return (
     <div className='header-container'>
+        <a href="../"><img src="./images/f4elogo.png" alt="logo" width='65' height='65'/></a>
+
         <ul className='header-sitemap'>
             <li><a href="#mission">Mission</a></li>
             <li><a href="#impact">Impact</a></li>
@@ -23,7 +25,7 @@ const Heading = () => {
             <a href="#impact" onClick={toggleMenu}>STORY</a>
             <a href="#contact" onClick={toggleMenu}>STATS</a>
             <button onClick={toggleMenu}>
-              <img src="src\assets\icons\close.png" alt="close" />
+              <img src="./icons/close.png" alt="close" />
             </button>
         </div>
         <button className='header-menu' onClick={toggleMenu}>

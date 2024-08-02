@@ -48,6 +48,7 @@ const Auth = () => {
           location: null,
           phone: null,
           description: null,
+          role: null,
         });
     
         alert("Sign Up Successful")
