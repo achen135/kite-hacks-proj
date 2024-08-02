@@ -84,7 +84,6 @@ const MapPage = () => {
         const infoWindow = new googleMaps.InfoWindow();
 
         businesses
-        .filter(business => userRole === 'donator' ? business.role === 'receiver' : business.role === 'donator')
         .forEach(business => {
           if (business.location) {
             const marker = new googleMaps.Marker({

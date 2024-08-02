@@ -15,7 +15,7 @@ const Mission = () => {
           </div>
           <div className='mission-text-container'>
               <h1>Our Mission</h1>
-              <p>At [Your WebApp Name], we aim to create a more equitable and sustainable food distribution system. 
+              <p>At Food For Everyone, we aim to create a more equitable and sustainable food distribution system. 
                 We strive to bridge the gap between surplus food from local businesses—such as restaurants 
                 and grocery stores—and the critical needs of food donation centers, homeless shelters, and food banks in our communities.</p>
           </div>

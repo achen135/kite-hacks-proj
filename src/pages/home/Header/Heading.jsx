@@ -29,7 +29,7 @@ const Heading = () => {
             </button>
         </div>
         <button className='header-menu' onClick={toggleMenu}>
-            <img src="src\assets\icons\menu.png" alt="menu"/>
+            <img src="./icons/menu.png" alt="menu"/>
         </button>
 
 

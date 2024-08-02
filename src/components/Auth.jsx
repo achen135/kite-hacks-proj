@@ -77,7 +77,7 @@ const Auth = () => {
         await signInWithEmailAndPassword(auth, email, password)
         navigate('/kite-hacks-proj/account');
       } catch(err) {
-        console.error(err)
+        alert("Sign In Failed - Check Your Information")
       }
     }
 
