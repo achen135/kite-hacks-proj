@@ -1,9 +1,111 @@
+.account-circle-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 70vw;
+        height: 70vw;
+        color: var(--colorprimary);
+        font-size: 1px;
+        background-color: var(--colorprimary);
+        border-radius: 50%;
+}
+
 .account-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
+.account-info-container {
+    z-index: 2;
+}
 
+.account-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.account-display-container p {
+    padding: 20px;
+    width: 100%;
+    border: 2px solid var(--coloraccent);
+    border-radius: 8px;
+    background-color: var(--colorsecondary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.account-display-container span {
+    color: var(--colortext);
+    font-weight: bold;
+}
+
+.account-container button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--coloraccent);
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.account-edit-btn {
+    width: 24px;
+}
+
+.account-edit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.account-edit-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 12px;
+    border: 2px solid var(--coloraccent);
+    border-radius: 8px;
+    width: 100%;
+    background-color: var(--colorsecondary);
+}
+
+.account-edit-field input, .account-edit-field textarea {
+    width: 92%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--colorprimary);
+}
+
+.account-edit-buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (min-width:720px) {
+    
+    .account-info-container {
+        padding: 80px;
+        border: 4px solid var(--colorprimary);
+        border-radius: 16px;
+        background-color: var(--colorsecondary);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .account-container {
+        background: radial-gradient(circle, var(--coloraccent), var(--colorprimary))
+    }
+
+    .account-edit-field input, .account-edit-field textarea {
+        font-size: 0.75vw;
+    }
+
+}

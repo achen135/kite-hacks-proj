@@ -1,39 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Sidebar.css'
-
-const toggleMenu = () => {
-  console.log("Clicked")
-  const sb = document.getElementById("sb")
-  console.log(getComputedStyle(sb).transform )
-  
-  if(getComputedStyle(sb).transform == "matrix(1, 0, 0, 1, -78.6, 0)"){
-    sb.style.transform = "translateX(0)"
-  }
-  else {
-    sb.style.transform = "translateX(-20vw)"
-  }
-  
-  
-}
 
 const Sidebar = () => {
   return (
     <>
-      <div className='sb-hamburger-container'>
-        <button onClick={toggleMenu}>
-          <img src='src\assets\menu.png' alt="=" />
-        </button>
-      </div>
-      <div className='sidebar-container' id='sb'>
-        <div className='sb-account'>
-            account
-        </div>
-        <div className='sb-map'>
-            map
+      <div className='sidebar-container'>
+        <div className='sidebar-content'>
+          <div className='sidebar-account'>
+            <Link to='/kite-hacks-proj/account'><img className='sidebar-icon' id='sidebar-account' src="src\assets\icons\account.png" alt="Account"/></Link>
+          </div>
+          <div className='sidebar-map'>
+            <Link to='/kite-hacks-proj/map'><img className='sidebar-icon' id='sidebar-map' src="src\assets\icons\map.png" alt="Map" /></Link>
+          </div>
         </div>
       </div>
     </>
-
   )
 }
 

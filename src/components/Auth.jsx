@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { auth } from '../config/firebase'
-import {createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword  } from "firebase/auth";
+import { auth, db } from '../config/firebase'
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
+import { setDoc, doc, GeoPoint } from 'firebase/firestore'
 import './Auth.css'
 
 const Auth = () => {
@@ -38,13 +39,24 @@ const Auth = () => {
 
     const signUp = async () => {
       try {
-        await createUserWithEmailAndPassword(auth, email, password, )
-        await updateProfile(auth.currentUser, {displayName : name})
-        console.log(auth.currentUser.displayName)
-      } catch(err) {
-        console.error(err)
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+    
+        await setDoc(doc(db, 'businesses', user.uid), {
+          name: name,
+          email: email,
+          location: null,
+          phone: null,
+          description: null,
+        });
+    
+        alert("Sign Up Successful")
+        navigate('/kite-hacks-proj/account');
+      } catch (err) {
+        console.error(err);
+        alert("Sign Up Failed - Please make sure requirements are met")
       }
-    }
+    };
 
     const isValid = () => {
       const nameValid = name.trim() != ""
@@ -62,9 +74,6 @@ const Auth = () => {
     const signIn = async () => {
       try {
         await signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user
-          })
         navigate('/kite-hacks-proj/account');
       } catch(err) {
         console.error(err)
